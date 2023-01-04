@@ -1,0 +1,48 @@
+header{
+    position: relative;
+    height: 10rem;
+    background-color: #000;
+    z-index: 1;
+
+    .socials{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 50%;
+        height: 100%;
+        img{
+            width: 50px;
+            margin-left: 2em;
+        
+            &:hover{
+                animation: shake-it 0.7s linear 1;
+            }
+        }
+    }
+}
+
+@media(min-width: 768px) {
+    header{
+        .socials{
+            width: 25%;
+        }
+    }
+}
+
+@media(min-width: 992px) {
+    header{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        .socials{
+            width: 15%;
+        }
+    }
+}
+@media(min-width: 1800px) {
+    header{
+        .socials{
+            width: 10%;
+        }
+    }
+}
