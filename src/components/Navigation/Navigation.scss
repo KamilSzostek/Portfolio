@@ -16,8 +16,9 @@ nav {
     li {
       padding-inline: 0.5em;
       cursor: pointer;
-      a {
+      button {
         padding-inline: .5em;
+        background-color: transparent;
         color: #fff;
         font-size: 2rem;
         font-family: "Bebas Neue", sans-serif;
@@ -41,7 +42,7 @@ nav {
   nav {
     ul {
       li {
-        a {
+        button {
           font-size: 2.5rem;
         }
       }
@@ -61,7 +62,7 @@ nav {
       margin-right: 2em;
       transform: none;
       li {
-        a {
+        button {
           font-size: 2.5rem;
         }
       }

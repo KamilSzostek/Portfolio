@@ -110,3 +110,30 @@ p {
     transform: rotate(0deg) scale(1);
   }
 }
+
+.scale-up {
+  animation: scale 3s 1 forwards;
+}
+@keyframes scale {
+  to{
+    transform: scale(1);
+  }
+}
+
+@keyframes type {
+  0% {
+    opacity: 1;
+  }
+  49% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  99% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

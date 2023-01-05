@@ -1,6 +1,7 @@
 @import "../../mixins/mixins";
 
 .aboutme {
+  min-height: 50vh;
   position: relative;
   &__balls {
     @include bg-balls;

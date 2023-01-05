@@ -1,55 +1,24 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import Email from "../Email/Email";
+import Intro from "./subcomponents/Intro";
+import { IntroRef } from "./subcomponents/Intro";
 import "./Start.scss";
+
+const line1 = "Cześć, mam na imię";
+const line2 = "Kamil";
+const line3 = "Jestem początkującym";
+const line4 = "front end developerem";
 
 interface IStartProps {}
 
 const Start: React.FunctionComponent<IStartProps> = (props) => {
-  const text1 = "Cześć, mam na imię";
-  const text2 = "Jestem początkującym";
+  const [isTyped, setIsTyped] = useState(false);
 
-  const [welcomeText, setWelcomeText] = useState("");
-  const [introText, setIntroText] = useState("");
+  const typingFinish = () => setIsTyped(true);
 
-  const welcomeTextHandler = (prevState: string, letter: string) =>
-    setWelcomeText(prevState + letter);
-  const introTextHandler = (prevState: string, letter: string) =>
-    setIntroText(prevState + letter);
-
-  const introRef = useRef<HTMLDivElement>(null);
-  const intro2Ref = useRef<HTMLDivElement>(null);
-  const caret1Ref = useRef<HTMLSpanElement>(null);
-  const caret2Ref = useRef<HTMLSpanElement>(null);
   const portraitRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    setTimeout(() => typeText(text1, welcomeText, welcomeTextHandler), 200);
-  }, [welcomeText]);
-
-  useEffect(() => {
-    if (text1 == welcomeText) {
-      caret1Ref.current?.classList.add('d-none')
-      caret2Ref.current?.classList.remove('d-none')
-      introRef.current?.classList.add("scale-up");
-      setTimeout(() => portraitRef.current?.classList.add("scale-up"), 100);
-      setTimeout(() => typeText(text2, introText, introTextHandler), 200);
-    }
-  });
-
-  useEffect(() => {
-    if (text2 == introText) {
-      caret2Ref.current?.classList.add('d-none')
-      intro2Ref.current?.classList.add("scale-up");
-    }
-  });
-
-  const typeText = (text: string, newText: string, textHandler: Function) => {
-    const text2 = text.substring(newText.length, text.length);
-    const textArr = [...text2];
-    for (const letter of textArr.reverse()) {
-      textHandler(newText, letter);
-    }
-  };
+  const childRef = useRef<IntroRef>(null);
+  const child2Ref = useRef<IntroRef>(null);
 
   return (
     <section id="start" className="start">
@@ -62,24 +31,23 @@ const Start: React.FunctionComponent<IStartProps> = (props) => {
         <Email />
       </div>
       <div className="start__welcome">
-        <h1>
-          {welcomeText}
-          <span className="caret" ref={caret1Ref}>|</span>
-          <br />
-          <div ref={introRef}>
-            <span className="start__welcome-name">Kamil</span>.
-          </div>
-        </h1>
+        <Intro
+          textLine1={line1}
+          textLine2={line2}
+          ref={childRef}
+          typing={typingFinish}
+        />
       </div>
-      <div className="start__portrait" ref={portraitRef} />
+      {isTyped && <div className="start__portrait" ref={portraitRef} />}
       <div className="start__intro">
-        <h2>
-          {introText} <span className="caret d-none" ref={caret2Ref}>|</span>
-          <br />{" "}
-          <div ref={intro2Ref}>
-            <span className="start__welcome-name">front end developerem</span>.
-          </div>
-        </h2>
+        {isTyped && (
+          <Intro
+            textLine1={line3}
+            textLine2={line4}
+            ref={child2Ref}
+            frequency={100}
+          />
+        )}
       </div>
     </section>
   );
