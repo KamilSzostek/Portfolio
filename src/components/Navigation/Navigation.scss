@@ -1,4 +1,6 @@
 nav {
+  margin-left: auto;
+  width: fit-content;
   .hamburger-react {
     position: absolute !important;
     top: 25px;
@@ -12,13 +14,14 @@ nav {
     min-height: 30vh;
     background-color: #000;
     transition: transform 1s;
-    transform: translateX(200%);
+    transform: translateX(100%);
     li {
       padding-inline: 0.5em;
       cursor: pointer;
       button {
         padding-inline: .5em;
         background-color: transparent;
+        border: none;
         color: #fff;
         font-size: 2rem;
         font-family: "Bebas Neue", sans-serif;
@@ -34,7 +37,7 @@ nav {
   }
 
   .show-nav-list {
-    transform: translateX(100%);
+    transform: translateX(0);
   }
 }
 
