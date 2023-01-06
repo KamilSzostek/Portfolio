@@ -119,6 +119,11 @@ p {
     transform: scale(1);
   }
 }
+@keyframes draw {
+  to{
+    right: 0;
+  }
+}
 
 @keyframes type {
   0% {

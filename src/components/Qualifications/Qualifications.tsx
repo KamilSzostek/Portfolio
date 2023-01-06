@@ -1,6 +1,7 @@
-import React, { useEffect, useRef } from "react";
+import React, { useContext, useEffect, useRef } from "react";
 import List from "./subcomponents/List";
 import "./Qualifications.scss";
+import { StoreContext } from "../../store/StoreProvider";
 
 interface IQualifiactionsProps {}
 
@@ -9,6 +10,10 @@ const Qualifiactions: React.FunctionComponent<IQualifiactionsProps> = (
 ) => {
   const sectionRef = useRef<HTMLElement>(null);
   const paragraphRef = useRef<HTMLParagraphElement>(null);
+
+  const { qualifications } = useContext(StoreContext);
+  const title = qualifications?.text1 as string;
+  const intro = qualifications?.text2 as string;
 
   useEffect(() => {
     const section = sectionRef.current!;
@@ -23,11 +28,10 @@ const Qualifiactions: React.FunctionComponent<IQualifiactionsProps> = (
 
   return (
     <section id="qualifications" className="qualifications" ref={sectionRef}>
-      <h3>kwalifikacje</h3>
+      <h3>{title}</h3>
       <div className="qualifications__text">
         <p className="opacity-0" ref={paragraphRef}>
-          Od lipca 2022 roku ukończyłem serie kursów po każdym tworząc projekt
-          dla utrwalenia zdobytej wiedzy. Kursy które ukończyłem na Udemy:
+          {intro}
         </p>
         <List />
       </div>

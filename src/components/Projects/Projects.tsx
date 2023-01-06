@@ -1,19 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./subcomponents/Card";
-import './Projects.scss';
+import "./Projects.scss";
+import { StoreContext } from "../../store/StoreProvider";
 
 const Projects: React.FunctionComponent = (props) => {
+  const { projects } = useContext(StoreContext);
+  const title = projects?.text1 as string;
+  const projectDescription1 = projects?.text2 as string;
+  const projectDescription2 = projects?.text3 as string;
+  console.log(projects);
   return (
     <section id="projects" className="projects">
-      <h3>projekty</h3>
+      <h3>{title}</h3>
       <div className="projects__cards">
-        <Card description="Projekt fikcyjnej siłowni - podsumowuje to czego  nauczyłem się w kursie Understanding TypeScript." />
+        <Card description={projectDescription1} />
         <Card
-          description="Projekt sklepu odzieżowego - moja pierwsza aplikacja w React
-        podsumowuje naukę tego frameworka. "
+          description={projectDescription2}
         />
       </div>
-      <div className="projects__balls"/>
+      <div className="projects__balls" />
     </section>
   );
 };

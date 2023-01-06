@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { StoreContext } from "../../store/StoreProvider";
 import { Spin as Hamburger } from "hamburger-react";
-import "./Navigation.scss";
 import ScrollButton from "./subcomponents/ScrollButton";
+import "./Navigation.scss";
 
 const sections = [
   { id: "#aboutme", sectionName: "o mnie" },
@@ -22,6 +23,8 @@ const Navigation: React.FunctionComponent<INavigationProps> = (props) => {
   };
   const listRef = useRef<HTMLUListElement>(null);
 
+  const {navigation} = useContext(StoreContext);
+
   const navListHandler = () => {
     const list = listRef.current;
     if (!isOpen && window.innerWidth < 992) {
@@ -31,7 +34,7 @@ const Navigation: React.FunctionComponent<INavigationProps> = (props) => {
     }
   };
 
-  const listElements = sections.map((element) => (
+  const listElements = navigation?.map((element) => (
     <li key={element.id}>
       <ScrollButton
         section={element.id}

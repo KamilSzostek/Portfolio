@@ -1,13 +1,9 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
+import { StoreContext } from "../../store/StoreProvider";
 import Email from "../Email/Email";
 import Intro from "./subcomponents/Intro";
 import { IntroRef } from "./subcomponents/Intro";
 import "./Start.scss";
-
-const line1 = "Cześć, mam na imię";
-const line2 = "Kamil";
-const line3 = "Jestem początkującym";
-const line4 = "front end developerem";
 
 interface IStartProps {}
 
@@ -20,13 +16,17 @@ const Start: React.FunctionComponent<IStartProps> = (props) => {
   const childRef = useRef<IntroRef>(null);
   const child2Ref = useRef<IntroRef>(null);
 
+  const { start } = useContext(StoreContext);
+  const line1 = start?.text1 as string;
+  const line2 = start?.text2 as string;
+  const line3 = start?.text3 as string;
+  const line4 = start?.text4 as string;
+
   return (
     <section id="start" className="start">
       <div className="start__top">
         <div className="start__top__languages">
-          <button>pl</button>
-          <span>/</span>
-          <button>en</button>
+
         </div>
         <Email />
       </div>

@@ -1,9 +1,7 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { typeText } from "../../assets/AutoTypingFunction";
+import { StoreContext } from "../../store/StoreProvider";
 import "./AboutMe.scss";
-
-const textParagraph =
-  "Jestem studentem czwartego roku na kierunku informatyka specjalizacja projektowanie aplikacji biznesowych. Program moich studiów skupiał się głównie na programowaniu backendu. Po zakończonej sesji szóstego semestru uznałem że chciałbym nauczyć się tworzyć ciekawy frontend. Spodobało mi się tak bardzo, że w tym momencie jest to kierunek w którym chciałbym poprowadzić moją karierę.";
 
 interface IAboutMeProps {}
 
@@ -15,6 +13,10 @@ const AboutMe: React.FunctionComponent<IAboutMeProps> = (props) => {
 
   const sectionRef = useRef<HTMLElement>(null);
   const caretRef = useRef<HTMLSpanElement>(null);
+
+  const { aboutme } = useContext(StoreContext);
+  const title = aboutme?.text1 as string;
+  const textParagraph = aboutme?.text2 as string;
 
   useEffect(() => {
     const section = sectionRef.current!;
@@ -35,7 +37,7 @@ const AboutMe: React.FunctionComponent<IAboutMeProps> = (props) => {
 
   return (
     <section id="aboutme" className="aboutme" ref={sectionRef}>
-      <h3>o mnie</h3>
+      <h3>{title}</h3>
       <p>
         {text}{" "}
         {text != textParagraph && (

@@ -39,7 +39,7 @@
   }
 
   &__welcome {
-    margin-top: 5em;
+    margin-top: 2em;
     transform: scale(1);
     h1 {
       position: relative;
@@ -49,9 +49,6 @@
 
       div {
         padding-inline: 0.25em;
-        background-position: center right;
-        background-size: 50% 100%;
-        background-repeat: no-repeat;
         text-align: right;
       }
       div:nth-child(2) {
@@ -62,16 +59,16 @@
 
         .black-line {
           position: absolute;
-          left: 15%;
-          right: 0;
+          left: 5%;
+          right: 100%;
           top: 0;
           bottom: 0;
           background-image: url("../../utilities/images/bg-name.png");
           background-position: center right;
           background-size: contain;
           background-repeat: no-repeat;
+          transform: scale(0);
           transform-origin: right;
-          transform: scaleX(0);
           animation: scale 1s 1s 1 forwards;
           z-index: -1;
         }
@@ -87,13 +84,13 @@
     background-position: center;
     background-repeat: no-repeat;
     transform: scaleX(0) translateY(-100%) rotate(90deg);
-    animation: scale 3s 1 forwards;
+    animation: scale 1s 1 forwards;
   }
 
   &__intro {
     transform: scale(1);
     h1 {
-      margin-top: -2em;
+      margin-top: -3em;
       margin-left: 0.25em;
       font-size: 3rem;
       line-height: 1.7em;
@@ -104,28 +101,24 @@
         background-repeat: no-repeat;
         text-align: right;
         transition: width 2s;
-        span {
-          background-repeat: no-repeat;
-        }
       }
       div:nth-child(2) {
         position: relative;
         font-size: 3.5rem;
+        padding-bottom: 1em;
         color: #fff;
         text-shadow: -1px -2px 2px #333;
         .black-line {
           position: absolute;
-          left: 25%;
-          right: 0;
+          left: 10%;
+          right: 90%;
           top: 0;
           bottom: 0;
           background-image: url("../../utilities/images/bg-profession.png");
-          background-position: center right;
-          background-size: contain;
-          background-repeat: no-repeat;
+          background-position: top left;
+          background-size: cover;
           transform-origin: left;
-          transform: scaleX(0);
-          animation: scale 1s 2s 1 forwards;
+          animation: draw 1s 2s 1 forwards;
           z-index: -1;
         }
       }
@@ -177,6 +170,10 @@
             font-size: 5.5rem;
           }
         }
+        .black-line{
+          left: 20% !important;
+          right: 80%;
+        }
       }
     }
   }
@@ -215,31 +212,12 @@
           span {
             font-size: 6.5rem;
           }
-        }
-      }
-      h1 {
-        div {
-          background-size: 65% 110%;
+          .black-line{
+            left: 35% !important;
+          }
         }
       }
     }
   }
 }
 
-@media (min-width: 1400px) {
-  .start {
-    &__top {
-      .email {
-        margin-right: 20%;
-      }
-    }
-    &__portrait {
-      height: 60vh;
-
-      img {
-        margin-top: -175px;
-        height: 650px;
-      }
-    }
-  }
-}
