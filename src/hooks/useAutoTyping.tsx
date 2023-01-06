@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { typeText } from "../assets/AutoTypingFunction";
+
+const timeouts: NodeJS.Timeout[] = [];
 
 export const useAutoTyping = (
   textLine: string,
@@ -8,6 +10,15 @@ export const useAutoTyping = (
   frequency: number
 ) => {
   useEffect(() => {
-    setTimeout(() => typeText(textLine, text, textHandler), frequency);
+    if (timeouts.length > 0) {
+      for (const timeout of timeouts) {
+        clearTimeout(timeout);
+      }
+    }
+    const timeout = setTimeout(
+      () => typeText(textLine, text, textHandler),
+      frequency
+    );
+    timeouts.push(timeout);
   }, [text]);
 };

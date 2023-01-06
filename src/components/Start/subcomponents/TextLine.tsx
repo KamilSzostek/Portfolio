@@ -7,6 +7,7 @@ import {
   useState,
 } from "react";
 import { useAutoTyping } from "../../../hooks/useAutoTyping";
+import { typeText } from "../../../assets/AutoTypingFunction";
 
 interface ITextLineProps {
   textLine: string;
@@ -35,16 +36,24 @@ const TextLine = forwardRef<TextLineRef, ITextLineProps>(
     }));
 
     useAutoTyping(textLine, text, textHandler, frequency);
+
+    useEffect(() => {
+      setText("");
+      caretRef.current?.classList.remove("d-none");
+    }, [textLine]);
+
     useEffect(() => {
       if (textLine === text) {
         caretRef.current?.classList.add("d-none");
         if (typing) typing();
       }
+      //  else 
+      // setTimeout(()=>typeText(textLine, text, textHandler, frequency), frequency);
     }, [text]);
     return (
       <div>
         <span>{text}</span>
-        <span className="black-line" ref={spanRef}/>
+        <span className="black-line" ref={spanRef} />
         <span className="caret" ref={caretRef}>
           |
         </span>

@@ -38,8 +38,13 @@ const Intro = forwardRef<IntroRef, IIntroProps>(
     }));
 
     useEffect(() => {
-      if(isTyped2) {
-        typing && typing()
+      setIsTyped(false);
+      setIsTyped2(false);
+    }, [textLine1]);
+    
+    useEffect(() => {
+      if (isTyped2) {
+        typing && typing();
       }
     });
 

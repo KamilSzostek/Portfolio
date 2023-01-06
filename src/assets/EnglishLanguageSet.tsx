@@ -1,15 +1,15 @@
 import { INavigationLink, IContext } from "./StoreInterfaces";
 
 export const navigationEN: INavigationLink[] = [
-    { id: "#aboutme", sectionName: "o mnie" },
-    { id: "#qualifications", sectionName: "kwalfikacje" },
-    { id: "#projects", sectionName: "projekty" },
+  { id: "#aboutme", sectionName: "about me" },
+  { id: "#qualifications", sectionName: "qualifications" },
+  { id: "#projects", sectionName: "projects" },
 ];
 export const startEN: IContext = {
   text1: "Hello, my name is",
   text2: "Kamil",
   text3: "I am beginner",
-  text4: "front end developerem",
+  text4: "front end developer",
 };
 export const aboutmeEN: IContext = {
   text1: "about me",

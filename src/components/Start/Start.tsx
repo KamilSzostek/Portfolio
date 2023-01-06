@@ -1,9 +1,10 @@
-import React, { useContext, useRef, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { StoreContext } from "../../store/StoreProvider";
 import Email from "../Email/Email";
 import Intro from "./subcomponents/Intro";
 import { IntroRef } from "./subcomponents/Intro";
 import "./Start.scss";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 
 interface IStartProps {}
 
@@ -22,11 +23,17 @@ const Start: React.FunctionComponent<IStartProps> = (props) => {
   const line3 = start?.text3 as string;
   const line4 = start?.text4 as string;
 
+  useEffect(()=>{
+    setIsTyped(false)
+  },[line1])
+  
   return (
     <section id="start" className="start">
       <div className="start__top">
         <div className="start__top__languages">
-
+          <LanguageSwitcher language="pl" />
+          <span>/</span>
+          <LanguageSwitcher language="en" />
         </div>
         <Email />
       </div>

@@ -1,22 +1,22 @@
 import { INavigationLink, IContext } from "./StoreInterfaces";
 
-export const navigation: INavigationLink[] = [
+export const navigationPL: INavigationLink[] = [
     { id: "#aboutme", sectionName: "o mnie" },
     { id: "#qualifications", sectionName: "kwalfikacje" },
     { id: "#projects", sectionName: "projekty" },
 ];
-export const start: IContext = {
+export const startPL: IContext = {
   text1: "Cześć, mam na imię",
   text2: "Kamil",
   text3: "Jestem początkującym",
   text4: "front end developerem",
 };
-export const aboutme: IContext = {
+export const aboutmePL: IContext = {
   text1: "o mnie",
   text2:
     "Jestem studentem czwartego roku na kierunku informatyka specjalizacja projektowanie aplikacji biznesowych. Program moich studiów skupiał się głównie na programowaniu backendu. Po zakończonej sesji szóstego semestru uznałem że chciałbym nauczyć się tworzyć ciekawy frontend. Spodobało mi się tak bardzo, że w tym momencie jest to kierunek w którym chciałbym poprowadzić moją karierę.",
 };
-export const qualifications: IContext = {
+export const qualificationsPL: IContext = {
   text1: "kwalfikacje",
   text2:
     "Od lipca 2022 roku ukończyłem serie kursów po każdym tworząc projekt dla utrwalenia zdobytej wiedzy. Kursy które ukończyłem na Udemy:",
@@ -31,7 +31,7 @@ export const qualifications: IContext = {
     "Understanding TypeScript - 2023 Edition stworzony i udostępniony przez Maximilian Schwarzmüller",
   ],
 };
-export const projects: IContext = {
+export const projectsPL: IContext = {
   text1: "projekty",
   text2:
     "Projekt fikcyjnej siłowni - podsumowuje to czego  nauczyłem się w kursie Understanding TypeScript.",

@@ -8,7 +8,7 @@ const Projects: React.FunctionComponent = (props) => {
   const title = projects?.text1 as string;
   const projectDescription1 = projects?.text2 as string;
   const projectDescription2 = projects?.text3 as string;
-  console.log(projects);
+
   return (
     <section id="projects" className="projects">
       <h3>{title}</h3>

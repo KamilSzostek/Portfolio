@@ -1,18 +1,62 @@
-import React, { FC, createContext } from "react";
-import {IData} from '../assets/StoreInterfaces'
-import {navigation , start, aboutme, qualifications, projects} from '../assets/PolishLanguageSet'
-import {navigationEN , startEN, aboutmeEN, qualificationsEN, projectsEN} from '../assets/EnglishLanguageSet'
+import React, { FC, createContext, useState, useLayoutEffect } from "react";
+import { IData } from "../assets/StoreInterfaces";
+import {
+  navigationPL,
+  startPL,
+  aboutmePL,
+  qualificationsPL,
+  projectsPL,
+} from "../assets/PolishLanguageSet";
+import {
+  navigationEN,
+  startEN,
+  aboutmeEN,
+  qualificationsEN,
+  projectsEN,
+} from "../assets/EnglishLanguageSet";
+import { appRefresher } from "../App";
 
 interface Props {
   children?: React.ReactNode;
 }
 
-let data: IData = {};
+const polishLanguageSet: IData = {
+  navigation: navigationPL,
+  start: startPL,
+  aboutme: aboutmePL,
+  qualifications: qualificationsPL,
+  projects: projectsPL,
+};
+const englishLanguageSet: IData = {
+  navigation: navigationEN,
+  start: startEN,
+  aboutme: aboutmeEN,
+  qualifications: qualificationsEN,
+  projects: projectsEN,
+};
+let data: IData = polishLanguageSet;
 
 export const StoreContext = createContext<IData>(data);
 
-data = { navigation, start, aboutme, qualifications, projects };
+export let languageHandler: (newLanguage: string) => void;
 
 export const StoreProvider: FC<Props> = ({ children }) => {
+  const [language, setLanguage] = useState("");
+  languageHandler = (newLanguage) => setLanguage(newLanguage);
+
+  useLayoutEffect(() => {
+    switch (language) {
+      case "pl":
+        data = polishLanguageSet;
+        appRefresher();
+        break;
+      case "en":
+        data = englishLanguageSet;
+        appRefresher();
+        break;
+      default:
+        data = englishLanguageSet;
+    }
+  }, [language]);
   return <StoreContext.Provider value={data}>{children}</StoreContext.Provider>;
 };

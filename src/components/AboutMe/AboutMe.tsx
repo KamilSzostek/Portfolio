@@ -5,6 +5,8 @@ import "./AboutMe.scss";
 
 interface IAboutMeProps {}
 
+const timeouts: NodeJS.Timeout[] = [];
+
 const AboutMe: React.FunctionComponent<IAboutMeProps> = (props) => {
   const [text, setText] = useState("");
   const [isVisible, setIsVisible] = useState(false);
@@ -30,10 +32,22 @@ const AboutMe: React.FunctionComponent<IAboutMeProps> = (props) => {
     observer.observe(section);
   });
 
-  useEffect(() => {
-    if (isVisible)
-      setTimeout(() => typeText(textParagraph, text, textHandler), 25);
-  }, [isVisible, text]);
+useEffect(()=>{
+  setText('');
+},[textParagraph])
+
+useEffect(()=>{
+  if(isVisible){
+    if(timeouts.length > 0){
+      for (const timeout of timeouts) {
+        clearTimeout(timeout);
+      }
+    }
+    const timeout = setTimeout(() => typeText(textParagraph, text, textHandler), 25);
+    timeouts.push(timeout);
+  }
+
+},[isVisible, text])
 
   return (
     <section id="aboutme" className="aboutme" ref={sectionRef}>

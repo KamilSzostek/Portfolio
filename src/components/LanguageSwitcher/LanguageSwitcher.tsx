@@ -1,15 +1,20 @@
-import * as React from "react";
+import React from "react";
+import {languageHandler} from '../../store/StoreProvider';
 
-interface ILanguageSwitcherProps {}
+interface ILanguageSwitcherProps {
+  language: string;
+}
 
-const LanguageSwitcher: React.FunctionComponent<ILanguageSwitcherProps> = (
-  props
-) => {
+const LanguageSwitcher: React.FunctionComponent<ILanguageSwitcherProps> = ({
+  language,
+}) => {
+  const switchLanguage = (event: React.MouseEvent<HTMLButtonElement>) => {
+    languageHandler(language);
+  };
+
   return (
     <>
-      <button>pl</button>
-      <span>/</span>
-      <button>en</button>
+      <button onClick={switchLanguage}>{language}</button>
     </>
   );
 };
