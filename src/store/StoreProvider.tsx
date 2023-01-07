@@ -54,8 +54,6 @@ export const StoreProvider: FC<Props> = ({ children }) => {
         data = englishLanguageSet;
         appRefresher();
         break;
-      default:
-        data = englishLanguageSet;
     }
   }, [language]);
   return <StoreContext.Provider value={data}>{children}</StoreContext.Provider>;

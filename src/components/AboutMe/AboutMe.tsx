@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { useContext, useLayoutEffect, useRef, useState } from "react";
 import { typeText } from "../../assets/AutoTypingFunction";
 import { StoreContext } from "../../store/StoreProvider";
 import "./AboutMe.scss";
@@ -20,7 +20,7 @@ const AboutMe: React.FunctionComponent<IAboutMeProps> = (props) => {
   const title = aboutme?.text1 as string;
   const textParagraph = aboutme?.text2 as string;
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const section = sectionRef.current!;
     const observer = new IntersectionObserver((entries) => {
       const entry = entries[0];
@@ -32,11 +32,11 @@ const AboutMe: React.FunctionComponent<IAboutMeProps> = (props) => {
     observer.observe(section);
   });
 
-useEffect(()=>{
+useLayoutEffect(()=>{
   setText('');
 },[textParagraph])
 
-useEffect(()=>{
+useLayoutEffect(()=>{
   if(isVisible){
     if(timeouts.length > 0){
       for (const timeout of timeouts) {

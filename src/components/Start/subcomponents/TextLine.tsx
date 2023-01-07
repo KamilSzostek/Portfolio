@@ -7,7 +7,6 @@ import {
   useState,
 } from "react";
 import { useAutoTyping } from "../../../hooks/useAutoTyping";
-import { typeText } from "../../../assets/AutoTypingFunction";
 
 interface ITextLineProps {
   textLine: string;
@@ -47,8 +46,6 @@ const TextLine = forwardRef<TextLineRef, ITextLineProps>(
         caretRef.current?.classList.add("d-none");
         if (typing) typing();
       }
-      //  else 
-      // setTimeout(()=>typeText(textLine, text, textHandler, frequency), frequency);
     }, [text]);
     return (
       <div>

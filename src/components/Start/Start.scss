@@ -1,5 +1,4 @@
 .start {
-  position: relative;
   padding-bottom: 5em;
   min-height: 135vh;
   background-color: var(--first-color);
@@ -85,12 +84,17 @@
   &__portrait {
     height: 400px;
     margin-top: -20px;
-    background-image: url("../../utilities/images/first.png");
+    background-image: url("../../utilities/images/me-animated.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
     transform: scaleX(0) rotate(90deg);
     animation: fly 1s 1 forwards;
+    transition: 1s;
+
+    &:hover{
+      background-image: url("../../utilities/images/first.png");
+    }
   }
 
   &__intro {
@@ -105,6 +109,7 @@
         text-align: right;
       }
       div:nth-child(2) {
+        position: relative;
         font-size: 4rem;
         padding-bottom: 1em;
         color: #fff;
@@ -112,7 +117,7 @@
         text-shadow: -1px -2px 2px #333;
         .black-line {
           position: absolute;
-          left: 0;
+          left: 10%;
           right: 90%;
           top: 30%;
           bottom: -10%;
@@ -197,7 +202,7 @@
           }
           .black-line {
             top: 20%;
-            left: 5%;
+            left: 35%;
             right: 70%;
             height: 250px;
             transform: scale(0.75);
@@ -256,9 +261,9 @@
             font-size: 8.5rem;
           }
           .black-line {
-            top: 25%;
-            left: 0;
-            right: 100%;
+            top: -75%;
+            left: -5%;
+            right: 105%;
             transform: scale(0.6);
             height: 270px;
           }
