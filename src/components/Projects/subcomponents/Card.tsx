@@ -1,13 +1,14 @@
 import React from "react";
 
 interface ICardProps {
+  link: string;
   description: string;
 }
 
-const Card: React.FunctionComponent<ICardProps> = ({ description }) => {
+const Card: React.FunctionComponent<ICardProps> = ({ link, description }) => {
   return (
-    <a href="https://kamilszostek.github.io/secret-power/" className="projects__cards__card">
-        <p>{description}</p>
+    <a href={link} className="projects__cards__card">
+      <p>{description}</p>
     </a>
   );
 };

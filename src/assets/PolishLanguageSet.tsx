@@ -14,7 +14,7 @@ export const startPL: IContext = {
 export const aboutmePL: IContext = {
   text1: "o mnie",
   text2:
-    "Jestem studentem czwartego roku na kierunku informatyka specjalizacja projektowanie aplikacji biznesowych. Program moich studiów skupiał się głównie na programowaniu backendu. Po zakończonej sesji szóstego semestru uznałem że chciałbym nauczyć się tworzyć ciekawy frontend. Spodobało mi się tak bardzo, że w tym momencie jest to kierunek w którym chciałbym poprowadzić moją karierę.",
+    "Jestem studentem czwartego roku na kierunku informatyka specjalizacja projektowanie aplikacji biznesowych. Program moich studiów skupiał się głównie na programowaniu backendu. Dzięki temu wiem trochę na temat baz danych oraz podstaw programowania w takich językach jak C# czy PHP. Po zakończonej sesji szóstego semestru uznałem że chciałbym nauczyć się tworzyć ciekawy frontend. Spodobało mi się tak bardzo, że w tym momencie jest to kierunek w którym chciałbym poprowadzić moją karierę.",
 };
 export const qualificationsPL: IContext = {
   text1: "kwalfikacje",

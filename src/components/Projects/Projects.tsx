@@ -13,8 +13,11 @@ const Projects: React.FunctionComponent = (props) => {
     <section id="projects" className="projects">
       <h3>{title}</h3>
       <div className="projects__cards">
-        <Card description={projectDescription1} />
         <Card
+          link='https://your-power-gym.netlify.app'
+          description={projectDescription1} />
+        <Card
+          link='https://fcss-shop.netlify.app'
           description={projectDescription2}
         />
       </div>

@@ -112,16 +112,18 @@ p {
 }
 
 .scale-up {
-  animation: scale 3s 1 forwards;
+  animation: scale-up 3s 1 forwards;
 }
-@keyframes scale {
-  to{
+
+@keyframes scale-up {
+  to {
     transform: scale(1);
   }
 }
+
 @keyframes draw {
-  to{
-    right: -20%;
+  to {
+    right: -26%;
   }
 }
 
@@ -129,33 +131,20 @@ p {
   0% {
     opacity: 1;
   }
+
   49% {
     opacity: 1;
   }
+
   50% {
     opacity: 0;
   }
+
   99% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
-  }
-}
-@keyframes fly {
-  0% {
-    transform: scale(.15) translate(100%, 100%);
-  }
-  25% {
-    transform: scale(.25) translate(50%, -100%);
-  }
-  50% {
-    transform: scale(.15) translate(-100%, 50%);
-  }
-  75% {
-    transform: scale(.25) translate(100%, -100%);
-  }
-  100% {
-    transform: scale(1);
   }
 }

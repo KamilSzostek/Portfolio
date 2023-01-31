@@ -8,13 +8,13 @@ export const navigationEN: INavigationLink[] = [
 export const startEN: IContext = {
   text1: "Hello, my name is",
   text2: "Kamil",
-  text3: "I am beginner",
+  text3: "I am a beginner",
   text4: "front end developer",
 };
 export const aboutmeEN: IContext = {
   text1: "about me",
   text2:
-    "I am a fourth year student in the field of computer science specializing in business application design. The curriculum of my studies mainly focused on backend programming. After the sixth semester session ended, I decided that I would like to learn how to create an interesting frontend. I liked it so much that at this point it is the direction in which I would like to lead my career.",
+    "I am a fourth year student in the field of computer science specializing in business application design. The curriculum of my studies mainly focused on backend programming. It gave me a basic understanding of database development and programming in C# and PHP. After the sixth semester session ended, I decided that I would like to learn how to create an interesting frontend. I liked it so much that at this point it is the direction in which I would like to lead my career.",
 };
 export const qualificationsEN: IContext = {
   text1: "qualifications",

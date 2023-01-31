@@ -49,8 +49,11 @@ const TextLine = forwardRef<TextLineRef, ITextLineProps>(
     }, [text]);
     return (
       <div>
-        <span>{text}</span>
-        <span className="black-line" ref={spanRef} />
+        <span>
+          {text}
+          <span className="black-line" ref={spanRef} />
+        </span>
+
         <span className="caret" ref={caretRef}>
           |
         </span>

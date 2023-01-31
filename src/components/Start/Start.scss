@@ -73,8 +73,6 @@
           background-position: center right;
           background-size: 100% 100%;
           background-repeat: no-repeat;
-          transform-origin: right;
-          animation: scale-up 1s 1s 1 forwards;
           z-index: -1;
         }
       }
@@ -84,17 +82,13 @@
   &__portrait {
     height: 400px;
     margin-top: -20px;
-    background-image: url("../../utilities/images/me-animated.png");
+    background-image: url("../../utilities/images/first.png");
     background-size: 100% 100%;
     background-position: center;
     background-repeat: no-repeat;
-    transform: scaleX(0) rotate(90deg);
-    animation: fly 1s 1 forwards;
-    transition: 1s;
-
-    &:hover{
-      background-image: url("../../utilities/images/first.png");
-    }
+    transform: scale(0);
+    transition: background 1.5s;
+    animation: scale-up 1s 1 forwards;
   }
 
   &__intro {
@@ -109,26 +103,27 @@
         text-align: right;
       }
       div:nth-child(2) {
-        position: relative;
         font-size: 4rem;
         padding-bottom: 1em;
         color: #fff;
         white-space: nowrap;
         text-shadow: -1px -2px 2px #333;
-        .black-line {
-          position: absolute;
-          left: 10%;
-          right: 90%;
-          top: 30%;
-          bottom: -10%;
-          height: 80%;
-          margin-bottom: 5em;
-          background-image: url("../../utilities/images/bg-profession.png");
-          background-position: top left;
-          background-size: cover;
-          animation: draw 1s 2s 1 forwards;
-          z-index: -1;
-          height: 150px;
+        span {
+          position: relative;
+          .black-line {
+            position: absolute;
+            left: 0;
+            right: 100%;
+            top: 0;
+            bottom: -10%;
+            height: 100px;
+            margin-bottom: 5em;
+            background-image: url("../../utilities/images/bg-profession.png");
+            background-position: top left;
+            background-size: cover;
+            animation: draw 1s 2s 1 forwards;
+            z-index: -1;
+          }
         }
       }
     }
@@ -142,6 +137,7 @@
 @media (min-width: 350px) {
   .start {
     min-height: 100vh;
+    height: 100vh;
   }
 }
 @media (min-width: 768px) {
@@ -176,7 +172,7 @@
           }
           .black-line {
             left: 50%;
-            width: 200px;
+            width: 220px;
           }
         }
       }
@@ -199,13 +195,9 @@
         div:nth-child(2) {
           span {
             font-size: 7.5rem;
-          }
-          .black-line {
-            top: 20%;
-            left: 35%;
-            right: 70%;
-            height: 250px;
-            transform: scale(0.75);
+            .black-line {
+              height: 200px;
+            }
           }
         }
       }
@@ -250,7 +242,7 @@
     &__intro {
       h1 {
         margin-top: -3em;
-        font-size: 5.5rem;
+        font-size: 5rem;
         div {
           span {
             font-size: 6.5rem;
@@ -259,13 +251,6 @@
         div:nth-child(2) {
           span {
             font-size: 8.5rem;
-          }
-          .black-line {
-            top: -75%;
-            left: -5%;
-            right: 105%;
-            transform: scale(0.6);
-            height: 270px;
           }
         }
       }
@@ -280,11 +265,17 @@
         div:nth-child(2) {
           padding-left: 5em;
           text-align: center;
-          .black-line {
-            transform: scale(0.6);
-            height: 370px;
-          }
         }
+      }
+    }
+  }
+}
+
+@media (min-width: 1800px) {
+  .start {
+    &__top {
+      .email {
+        margin-right: 30%;
       }
     }
   }
